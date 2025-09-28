@@ -9,6 +9,7 @@ class Staff{
         Staff(string name,int id);
 };
 
+// CONSTRUCTOR OF THE STAFF CLASS
 Staff::Staff(string name,int id){
     this->name = name;
     this->id = id;
@@ -18,30 +19,56 @@ class Teacher:public Staff{
     public:
         string subject;
         int qualification;
-        Teacher(string sub,int qual,string name,int id);
+        Teacher(string name,int id,string sub,int qual);
 };
-Teacher::Teacher(string sub,int qual,string name,int id):Staff(name,id){
+
+// CONSTRUCTOR OF THE TEACHER CLASS
+Teacher::Teacher(string name,int id,string sub,int qual):Staff(name,id){
     this->subject = sub;
     this->qualification = qual;
 }
+
 class Typist:public Staff{
     public:
-        double salary;
+        // double salary;
+        Typist(string name,int id);
 };
+// CONSTRUCTOR OF THE TYPIST CLASS
+Typist::Typist(string name,int id):Staff(name,id){
+    // this->salary = sal;
+}
+
 class Officer:public Staff{
     public:
         string department;
-        int grade;
+        // int grade;
+        Officer(string name,int id,string dept);
 };
+// CONSTRUCTOR OF THE OFFICER CLASS
+Officer::Officer(string name,int id,string dept):Staff(name,id){
+    this->department = dept;
+}
+
 class Regular:public Typist{
     public:
         double monthly_salary;
+        // void show();
+        Regular(string name,int id,double sal);
 };
+// CONSTRUCTOR OF THE REGULAR TYPIST CLASS
+Regular::Regular(string name,int id,double sal):Typist(name,id){
+    this->monthly_salary = sal;
+}
 
 class Casual:public Typist{
     public:
         double daily_wage;
+        Casual(string name,int id,double sal);
 };
+// CONSTRUCTOR OF THE REGULAR CASUAL CLASS
+Casual::Casual(string name,int id,double sal):Typist(name,id){
+    this->daily_wage = sal;
+}
 
 
 int main(){
