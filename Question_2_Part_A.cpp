@@ -71,7 +71,7 @@ public:
         // traverse the list to find the book
         while (ptr != NULL)
         {
-            if (ptr->title == search_title)
+            if (ptr->title == search_title && ptr->author == search_author)
             {
                 // means we found the book
                 cout << "Book in Stock" << endl;
